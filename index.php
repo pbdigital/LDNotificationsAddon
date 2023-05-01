@@ -22,7 +22,7 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 );
 
 //Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('release');
+$myUpdateChecker->setBranch('main');
 
 
 // PBD_LD_Notification class
