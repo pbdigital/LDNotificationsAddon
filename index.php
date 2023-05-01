@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: LearnDash Notifications Addon
-Description: A plugin to handle LearnDash notifications based on completing last course. Designed to work alongside AutomatorWP or Uncanny Automator
-Version: 1.0
+Description: A plugin to handle LearnDash notifications based on completing last course. Designed to work alongside AutomatorWP or Uncanny Automator.
+Version: 1.01
 Author: PB Digital
 Author URI: https://pbdigital.com.au
 */
