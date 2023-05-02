@@ -48,15 +48,19 @@ class PBD_LD_Notification {
 		// If next step ID is not 0
 		if ( $next_step_id != 0 ) {
 			// Get post items and course
+			
+			$current_item = get_post( $id );
 			$item = get_post( $next_step_id );
 			$course = get_post( $course_id );
-
+			
 			// Clear scheduled hook, schedule new event and update user meta data
 			wp_clear_scheduled_hook( 'pbd_ld_notification_cron_hook', array( $user_id ) );
 			wp_schedule_single_event( time() + $delay, 'pbd_ld_notification_cron_hook', array( $user_id ) );
+			update_user_meta( $user_id, 'ld_notification_triggered', "false" );
 			update_user_meta( $user_id, 'ld_notification_next_step_id', $next_step_id );
 			update_user_meta( $user_id, 'ld_notification_next_lesson_title', $item->post_title );
 			update_user_meta( $user_id, 'ld_notification_course', $course->post_title );
+			update_user_meta( $user_id, 'ld_notification_last_item_completed', $current_item->post_title );
 			update_user_meta( $user_id, 'ld_notification_next_lesson_url', get_permalink( $next_step_id ) );
 
 		} else {
