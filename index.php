@@ -52,7 +52,7 @@ class PBD_LD_Notification {
 			$current_item = get_post( $id );
 			$item = get_post( $next_step_id );
 			$course = get_post( $course_id );
-			
+			$delay = $delay * 3600; //Convert hours to seconds
 			// Clear scheduled hook, schedule new event and update user meta data
 			wp_clear_scheduled_hook( 'pbd_ld_notification_cron_hook', array( $user_id ) );
 			wp_schedule_single_event( time() + $delay, 'pbd_ld_notification_cron_hook', array( $user_id ) );
